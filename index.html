@@ -290,16 +290,21 @@
       }
       if(id==='email')return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(text)&&input.validity.valid;
       if(id==='address'){
-        const complete=/^\d+[A-Za-z]?(?:[-\s]\d+)?\s+[^,]{2,},\s*[A-Za-z][A-Za-z .'-]+(?:,\s*CA)?\s+\d{5}(?:-\d{4})?$/i.test(text);
         const addressZip=text.match(/\b(\d{5})(?:-\d{4})?\s*$/);
-        return complete&&Boolean(addressZip)&&addressZip[1]===value('zip').trim();
+        if(!addressZip||addressZip[1]!==value('zip').trim())return false;
+        const beforeZip=text.slice(0,addressZip.index).replace(/(?:,?\s+CA)\s*$/i,'').trim();
+        const hasStreetNumber=/^\d+[A-Za-z]?(?:[-/]\d+[A-Za-z]?)?\s+/.test(beforeZip);
+        const words=beforeZip.match(/[A-Za-z][A-Za-z.'’-]*/g)||[];
+        return hasStreetNumber&&words.length>=3;
       }
       return true;
     }
     function setFieldError(id,show){
       const input=document.getElementById(id), error=document.getElementById(id+'Error');
       input.setAttribute('aria-invalid',show?'true':'false');
-      error.textContent=show?(id==='address'&&/\b\d{5}(?:-\d{4})?\s*$/.test(input.value.trim())?'The address ZIP must match the ZIP code entered above.':fieldMessages[id]):'';
+      const addressZip=id==='address'&&input.value.trim().match(/\b(\d{5})(?:-\d{4})?\s*$/);
+      const addressZipMismatch=addressZip&&addressZip[1]!==value('zip').trim();
+      error.textContent=show?(addressZipMismatch?'The address ZIP must match the ZIP code entered above.':fieldMessages[id]):'';
       error.classList.toggle('show',show);
     }
     function validateFields(ids,{focus=true}={}){
