@@ -38,7 +38,7 @@
     .nav-cta:hover,.primary:hover{transform:translateY(-1px);background:var(--leaf)}
 
     .hero{display:grid;grid-template-columns:1.02fr .98fr;min-height:670px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-    .hero-copy{padding:78px max(44px,calc((100vw - 1180px)/2)) 68px max(20px,calc((100vw - 1180px)/2));display:flex;flex-direction:column;justify-content:center}
+    .hero-copy{padding:78px 44px 68px max(20px,calc((100vw - 1180px)/2));display:flex;flex-direction:column;justify-content:center}
     .location{display:flex;align-items:center;gap:9px;color:var(--leaf);font-size:14px;font-weight:700;margin-bottom:24px}
     .location::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--peach);box-shadow:0 0 0 5px color-mix(in srgb,var(--peach) 25%,transparent)}
     h1{font:600 clamp(51px,6.7vw,94px)/.92 "Newsreader",serif;letter-spacing:-4px;margin:0;max-width:780px}
@@ -87,6 +87,17 @@
     .pay-note{margin:20px 0 0;padding:15px 16px;border:1px solid var(--line);border-radius:8px;color:var(--muted);font-size:14px;background:var(--paper)}
     .pay-note strong{color:var(--ink)}
     .pay-note a{color:var(--ink);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+    .pay-block{margin-top:26px}
+    .pay-title{font:600 20px/1.2 "Newsreader",serif;margin:0 0 14px}
+    .pay-choices{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .pay-choice{display:flex;gap:12px;align-items:flex-start;padding:16px;border:1px solid var(--line);border-radius:8px;cursor:pointer;background:var(--paper)}
+    .pay-choice input{margin-top:3px;accent-color:var(--leaf-dark)}
+    .pay-choice-body strong{display:block;font-size:15px}
+    .pay-choice-body span{display:block;color:var(--muted);font-size:13px;margin-top:4px}
+    .pay-finish{margin-top:18px;padding-top:18px;border-top:1px solid var(--line)}
+    .pay-now{display:inline-block;background:var(--leaf-dark);color:var(--paper);border-radius:8px;padding:14px 22px;font-weight:700;text-decoration:none}
+    .pay-hint{color:var(--muted);font-size:14px;margin:12px 0}
+    .paid-done{border:1px solid var(--line);background:var(--paper);border-radius:8px;padding:12px 20px;font-weight:700;cursor:pointer}
     .extras{margin-top:20px}.extras-label{font-size:13px;font-weight:700;margin:0 0 9px}.extras-list{display:flex;flex-wrap:wrap;gap:9px}
     .extra{border:1px solid var(--line);background:var(--paper);color:var(--ink);padding:10px 13px;border-radius:8px;font-size:13px;font-weight:600}.extra[aria-pressed="true"]{border-color:var(--leaf);background:var(--soft);color:var(--leaf-dark)}
     .confirmation{display:none}.planner.confirming{grid-template-columns:1fr}.planner.confirming .summary,.planner.confirming .stepper,.planner.confirming .step,.planner.confirming .controls{display:none}.planner.confirming .confirmation{display:block}
@@ -124,7 +135,7 @@
       .wrap{width:min(100% - 28px,1180px)}.nav{height:68px}.brand{font-size:24px}.nav-cta{padding:10px 13px;font-size:13px}
       h1{font-size:53px;letter-spacing:-2.7px}.hero-copy>p{font-size:17px}.hero-image{min-height:420px}.image-note{left:14px;bottom:14px}
       .booking,.services{padding:65px 0}.booking-head{margin-bottom:22px}h2{font-size:42px;letter-spacing:-1.5px}
-      .planner{margin:0 -14px}.form-side,.summary{padding:27px 20px}.choices,.form-grid,.confirm-grid{grid-template-columns:1fr}.field-wide,.confirm-item.full{grid-column:auto}.choice{padding:15px}.choice.selected{padding:14px}.review{align-items:flex-start}.review strong{font-size:27px}.confirm-head{display:block}.confirm-price{text-align:left;margin-top:18px}.confirm-actions{align-items:stretch;flex-direction:column-reverse}.edit-booking,.confirm-booking{width:100%}
+      .planner{margin:0 -14px}.form-side,.summary{padding:27px 20px}.choices,.form-grid,.confirm-grid,.pay-choices{grid-template-columns:1fr}.field-wide,.confirm-item.full{grid-column:auto}.choice{padding:15px}.choice.selected{padding:14px}.review{align-items:flex-start}.review strong{font-size:27px}.confirm-head{display:block}.confirm-price{text-align:left;margin-top:18px}.confirm-actions{align-items:stretch;flex-direction:column-reverse}.edit-booking,.confirm-booking{width:100%}
       .why{padding:65px 0}.why-image{height:360px}.why-image::after{width:72px;height:72px;right:-8px;top:-13px}.service-grid{grid-template-columns:1fr}.service:first-child{grid-column:auto}.service{min-height:370px}.areas{padding:50px 0 60px}.footer-row{align-items:flex-start;flex-direction:column}
     }
     @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
@@ -203,7 +214,7 @@
               <div class="field-wide"><label for="email">Email</label><input id="email" type="email" autocomplete="email" placeholder="you@example.com" aria-describedby="emailError" required><p class="field-error" id="emailError" aria-live="polite"></p></div>
               <div class="field-wide"><label for="address">Cleaning address</label><input id="address" autocomplete="street-address" placeholder="Street address, city, and ZIP" aria-describedby="addressError" required><p class="field-error" id="addressError" aria-live="polite"></p></div>
             </div>
-            <p class="pay-note"><strong>Two ways to pay.</strong> <a href="https://3167d7a7-5787-4c70-8e53-acf8a6278b1b.paylinks.godaddy.com" target="_blank" rel="noopener">Pay online now with a secure link</a>, or pay your cleaner by credit card or cash on cleaning day. No card details are needed to request your booking.</p>
+            <p class="pay-note"><strong>No payment is collected now.</strong> You'll choose how to pay — online or on cleaning day — when you confirm your booking.</p>
           </section>
           <div class="controls"><button class="back" hidden>Back</button><button class="next" disabled>Continue</button></div>
           <section class="confirmation" aria-labelledby="confirmTitle">
@@ -216,14 +227,26 @@
               <div class="confirm-item full"><span>Extras</span><strong id="confirmExtras">None selected</strong></div>
               <div class="confirm-item full"><span>Cleaning address</span><strong id="confirmAddress">—</strong></div>
             </div>
-            <p class="pay-note"><strong>Two ways to pay.</strong> <a href="https://3167d7a7-5787-4c70-8e53-acf8a6278b1b.paylinks.godaddy.com" target="_blank" rel="noopener">Pay online now with a secure link</a>, or pay your cleaner by credit card or cash on cleaning day. No card details are collected with this request.</p>
+            <div class="pay-block">
+              <h4 class="pay-title">How would you like to pay?</h4>
+              <div class="pay-choices" role="radiogroup" aria-label="Payment method">
+                <label class="pay-choice"><input type="radio" name="paymethod" value="door" checked><span class="pay-choice-body"><strong>Pay on cleaning day</strong><span>Your cleaner collects payment by credit card or cash.</span></span></label>
+                <label class="pay-choice"><input type="radio" name="paymethod" value="online"><span class="pay-choice-body"><strong>Pay online now</strong><span>Secure card payment through our payment link.</span></span></label>
+              </div>
+            </div>
             <div class="confirm-actions"><button class="edit-booking" type="button">Edit booking details</button><button class="confirm-booking" type="button">Confirm booking</button></div>
-            <div class="confirm-status" role="status"><strong>Your details are confirmed.</strong><p>We’ll use the contact information you provided to follow up about availability.</p></div>
+            <div class="confirm-status" role="status"><strong id="confirmStatusTitle">Your details are confirmed.</strong><p id="confirmStatusText">We’ll use the contact information you provided to follow up about availability.</p>
+              <div class="pay-finish" hidden>
+                <a class="pay-now" id="payNowBtn" href="https://3167d7a7-5787-4c70-8e53-acf8a6278b1b.paylinks.godaddy.com" target="_blank" rel="noopener">Pay <span id="payNowAmount">$—</span> online →</a>
+                <p class="pay-hint">Complete your payment on the secure page, then come back here and tap the button below.</p>
+                <button class="paid-done" type="button" id="paidDoneBtn">I've completed my payment</button>
+              </div>
+            </div>
           </section>
         </div>
         <aside class="summary" aria-live="polite">
           <div><div class="summary-label">YOUR CLEANING</div><div class="summary-row"><span>Service</span><span id="sumService">Choose a service</span></div><div class="summary-row"><span>Home</span><span id="sumHome">—</span></div><div class="summary-row"><span>Preferred time</span><span id="sumTime">—</span></div><div class="summary-row"><span>Estimated total</span><span id="sumPrice">—</span></div></div>
-          <p class="summary-foot">Pay online with a secure link, or pay your cleaner by credit card or cash on cleaning day. No payment is collected when you request a booking.</p>
+          <p class="summary-foot">No payment is collected when you request a booking — you’ll choose how to pay when you confirm.</p>
         </aside>
       </div>
     </section>
@@ -278,7 +301,7 @@
       name:'Enter your first and last name.',
       phone:'Enter a valid 10-digit U.S. phone number.',
       email:'Enter a valid email address.',
-      address:'Enter a complete street address, city, and ZIP code.'
+      address:'Enter your street address.'
     };
     function fieldIsValid(id){
       const input=document.getElementById(id), text=input.value.trim();
@@ -290,22 +313,13 @@
         return /^[2-9]\d{2}[2-9]\d{6}$/.test(digits);
       }
       if(id==='email')return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(text)&&input.validity.valid;
-      if(id==='address'){
-        const addressZip=text.match(/\b(\d{5})(?:-\d{4})?\s*$/);
-        if(!addressZip||addressZip[1]!==value('zip').trim())return false;
-        const beforeZip=text.slice(0,addressZip.index).replace(/(?:,?\s+CA)\s*$/i,'').trim();
-        const hasStreetNumber=/^\d+[A-Za-z]?(?:[-/]\d+[A-Za-z]?)?\s+/.test(beforeZip);
-        const words=beforeZip.match(/[A-Za-z][A-Za-z.'’-]*/g)||[];
-        return hasStreetNumber&&words.length>=3;
-      }
+      if(id==='address')return text.length>0;
       return true;
     }
     function setFieldError(id,show){
       const input=document.getElementById(id), error=document.getElementById(id+'Error');
       input.setAttribute('aria-invalid',show?'true':'false');
-      const addressZip=id==='address'&&input.value.trim().match(/\b(\d{5})(?:-\d{4})?\s*$/);
-      const addressZipMismatch=addressZip&&addressZip[1]!==value('zip').trim();
-      error.textContent=show?(addressZipMismatch?'The address ZIP must match the ZIP code entered above.':fieldMessages[id]):'';
+      error.textContent=show?fieldMessages[id]:'';
       error.classList.toggle('show',show);
     }
     function validateFields(ids,{focus=true}={}){
@@ -338,6 +352,10 @@
       document.getElementById('confirmPrice').textContent=money.format(totalPrice());
       document.getElementById('confirmLead').textContent=dateInput.value?`We’ll arrive ${formattedDate()} during your selected window to clean your ${bedroomPhrase} ${value('homeType').toLowerCase()}.`:'Review the visit details before you confirm.';
       document.querySelector('.confirm-status').classList.remove('show');
+      document.querySelector('.pay-block').style.display='';
+      document.querySelector('.pay-finish').hidden=true;
+      document.getElementById('confirmStatusTitle').textContent='Your details are confirmed.';
+      document.getElementById('confirmStatusText').textContent='We’ll use the contact information you provided to follow up about availability.';
       document.querySelector('.confirm-booking').disabled=false;
       document.querySelector('.confirm-booking').textContent='Confirm booking';
     }
@@ -361,7 +379,29 @@
     });
     back.addEventListener('click',()=>{if(current>0){current--;refresh()}});
     document.querySelector('.edit-booking').addEventListener('click',()=>{current=2;refresh();planner.scrollIntoView({behavior:'auto',block:'start'})});
-    document.querySelector('.confirm-booking').addEventListener('click',event=>{event.currentTarget.disabled=true;event.currentTarget.textContent='Booking confirmed';document.querySelector('.confirm-status').classList.add('show')});
+    document.querySelector('.confirm-booking').addEventListener('click',event=>{
+      event.currentTarget.disabled=true;event.currentTarget.textContent='Booking confirmed';
+      const method=document.querySelector('input[name="paymethod"]:checked').value;
+      const title=document.getElementById('confirmStatusTitle'), text=document.getElementById('confirmStatusText');
+      const finish=document.querySelector('.pay-finish');
+      document.querySelector('.pay-block').style.display='none';
+      if(method==='online'){
+        title.textContent='Booking confirmed — one step left.';
+        text.textContent='Tap the button below to pay securely online. Your visit is held while you complete payment.';
+        document.getElementById('payNowAmount').textContent=money.format(totalPrice());
+        finish.hidden=false;
+      }else{
+        title.textContent='Booking confirmed.';
+        text.textContent='Pay your cleaner by credit card or cash on cleaning day. We’ll use the contact information you provided to follow up about availability.';
+        finish.hidden=true;
+      }
+      document.querySelector('.confirm-status').classList.add('show');
+    });
+    document.getElementById('paidDoneBtn').addEventListener('click',()=>{
+      document.getElementById('confirmStatusTitle').textContent='Thank you — payment received.';
+      document.getElementById('confirmStatusText').textContent='Your booking is confirmed. You’ll receive a payment receipt by email from our payment processor, and we’ll confirm your visit details shortly.';
+      document.querySelector('.pay-finish').hidden=true;
+    });
     document.querySelector('.service.textual a[href="#book"]').addEventListener('click',()=>document.querySelector('.choice[data-value="Move in / out"]').click());
     ['zip','date','name','phone','email','address'].forEach(id=>{
       const input=document.getElementById(id);
