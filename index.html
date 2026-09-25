@@ -86,6 +86,7 @@
     .contact-heading{font:600 20px/1.2 "Newsreader",serif;margin:24px 0 14px}.field-wide{grid-column:1/-1}
     .pay-note{margin:20px 0 0;padding:15px 16px;border:1px solid var(--line);border-radius:8px;color:var(--muted);font-size:14px;background:var(--paper)}
     .pay-note strong{color:var(--ink)}
+    .pay-note a{color:var(--ink);font-weight:700;text-decoration:underline;text-underline-offset:3px}
     .extras{margin-top:20px}.extras-label{font-size:13px;font-weight:700;margin:0 0 9px}.extras-list{display:flex;flex-wrap:wrap;gap:9px}
     .extra{border:1px solid var(--line);background:var(--paper);color:var(--ink);padding:10px 13px;border-radius:8px;font-size:13px;font-weight:600}.extra[aria-pressed="true"]{border-color:var(--leaf);background:var(--soft);color:var(--leaf-dark)}
     .confirmation{display:none}.planner.confirming{grid-template-columns:1fr}.planner.confirming .summary,.planner.confirming .stepper,.planner.confirming .step,.planner.confirming .controls{display:none}.planner.confirming .confirmation{display:block}
@@ -202,7 +203,7 @@
               <div class="field-wide"><label for="email">Email</label><input id="email" type="email" autocomplete="email" placeholder="you@example.com" aria-describedby="emailError" required><p class="field-error" id="emailError" aria-live="polite"></p></div>
               <div class="field-wide"><label for="address">Cleaning address</label><input id="address" autocomplete="street-address" placeholder="Street address, city, and ZIP" aria-describedby="addressError" required><p class="field-error" id="addressError" aria-live="polite"></p></div>
             </div>
-            <p class="pay-note"><strong>Pay on cleaning day.</strong> Your cleaner will collect payment by credit card or cash when they arrive. No card details are needed to request your booking.</p>
+            <p class="pay-note"><strong>Two ways to pay.</strong> <a href="https://3167d7a7-5787-4c70-8e53-acf8a6278b1b.paylinks.godaddy.com" target="_blank" rel="noopener">Pay online now with a secure link</a>, or pay your cleaner by credit card or cash on cleaning day. No card details are needed to request your booking.</p>
           </section>
           <div class="controls"><button class="back" hidden>Back</button><button class="next" disabled>Continue</button></div>
           <section class="confirmation" aria-labelledby="confirmTitle">
@@ -215,14 +216,14 @@
               <div class="confirm-item full"><span>Extras</span><strong id="confirmExtras">None selected</strong></div>
               <div class="confirm-item full"><span>Cleaning address</span><strong id="confirmAddress">—</strong></div>
             </div>
-            <p class="pay-note"><strong>Pay on cleaning day.</strong> Pay your cleaner by credit card or cash when they arrive. No card details are collected with this request.</p>
+            <p class="pay-note"><strong>Two ways to pay.</strong> <a href="https://3167d7a7-5787-4c70-8e53-acf8a6278b1b.paylinks.godaddy.com" target="_blank" rel="noopener">Pay online now with a secure link</a>, or pay your cleaner by credit card or cash on cleaning day. No card details are collected with this request.</p>
             <div class="confirm-actions"><button class="edit-booking" type="button">Edit booking details</button><button class="confirm-booking" type="button">Confirm booking</button></div>
             <div class="confirm-status" role="status"><strong>Your details are confirmed.</strong><p>We’ll use the contact information you provided to follow up about availability.</p></div>
           </section>
         </div>
         <aside class="summary" aria-live="polite">
           <div><div class="summary-label">YOUR CLEANING</div><div class="summary-row"><span>Service</span><span id="sumService">Choose a service</span></div><div class="summary-row"><span>Home</span><span id="sumHome">—</span></div><div class="summary-row"><span>Preferred time</span><span id="sumTime">—</span></div><div class="summary-row"><span>Estimated total</span><span id="sumPrice">—</span></div></div>
-          <p class="summary-foot">Pay your cleaner by credit card or cash on cleaning day. No payment is collected when you request a booking.</p>
+          <p class="summary-foot">Pay online with a secure link, or pay your cleaner by credit card or cash on cleaning day. No payment is collected when you request a booking.</p>
         </aside>
       </div>
     </section>
